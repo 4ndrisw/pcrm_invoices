@@ -56,10 +56,10 @@ $payment_gateways = $this->ci->remittance_modes_model->get_payment_gateways(true
 foreach ($rResult as $aRow) {
     $row = [];
 
-    $link = admin_url('statements/payment/' . $aRow['id']);
+    $link = admin_url('statements/remittances/payment/' . $aRow['id']);
 
 
-    $options = icon_btn('statements/payment/' . $aRow['id'], 'fa-regular fa-pen-to-square');
+    $options = icon_btn('statements/remittance/payment/' . $aRow['id'], 'fa-regular fa-pen-to-square');
 
     if ($hasPermissionDelete) {
         $options .= icon_btn('statements/delete/' . $aRow['id'], 'fa fa-remove', 'btn-danger _delete');
