@@ -59,7 +59,7 @@ foreach ($rResult as $aRow) {
     $link = admin_url('statements/remittances/payment/' . $aRow['id']);
 
 
-    $options = icon_btn('statements/remittance/payment/' . $aRow['id'], 'fa-regular fa-pen-to-square');
+    $options = icon_btn('statements/remittances/payment/' . $aRow['id'], 'fa-regular fa-pen-to-square');
 
     if ($hasPermissionDelete) {
         $options .= icon_btn('statements/delete/' . $aRow['id'], 'fa fa-remove', 'btn-danger _delete');
