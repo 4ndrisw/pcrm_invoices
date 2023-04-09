@@ -26,7 +26,7 @@ class Remittances_model extends App_Model
             return false;
         }
         // Since version 1.0.1
-        $this->load->model('remittance_modes_model');
+        $this->load->model('statements/remittance_modes_model');
         $payment_gateways = $this->remittance_modes_model->get_payment_gateways(true);
         if (is_null($payment->id)) {
             foreach ($payment_gateways as $gateway) {
