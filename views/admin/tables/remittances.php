@@ -56,13 +56,13 @@ $payment_gateways = $this->ci->remittance_modes_model->get_payment_gateways(true
 foreach ($rResult as $aRow) {
     $row = [];
 
-    $link = admin_url('payments/payment/' . $aRow['id']);
+    $link = admin_url('statements/payment/' . $aRow['id']);
 
 
-    $options = icon_btn('payments/payment/' . $aRow['id'], 'fa-regular fa-pen-to-square');
+    $options = icon_btn('statements/payment/' . $aRow['id'], 'fa-regular fa-pen-to-square');
 
     if ($hasPermissionDelete) {
-        $options .= icon_btn('payments/delete/' . $aRow['id'], 'fa fa-remove', 'btn-danger _delete');
+        $options .= icon_btn('statements/delete/' . $aRow['id'], 'fa fa-remove', 'btn-danger _delete');
     }
 
     $numberOutput = '<a href="' . $link . '">' . $aRow['id'] . '</a>';
@@ -70,7 +70,7 @@ foreach ($rResult as $aRow) {
     $numberOutput .= '<div class="row-options">';
     $numberOutput .= '<a href="' . $link . '">' . _l('view') . '</a>';
     if ($hasPermissionDelete) {
-        $numberOutput .= ' | <a href="' . admin_url('payments/delete/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+        $numberOutput .= ' | <a href="' . admin_url('statements/delete/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
     }
     $numberOutput .= '</div>';
 
