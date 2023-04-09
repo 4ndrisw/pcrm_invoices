@@ -81,7 +81,7 @@ class Remittances extends AdminController
         }
 
         if (!$id) {
-            redirect(admin_url('remittances'));
+            redirect(admin_url('statements/remittances'));
         }
 
         if ($this->input->post()) {
@@ -148,7 +148,7 @@ class Remittances extends AdminController
         $payment->statement_data = $this->statements_model->get($payment->statementid);
 
         try {
-            $paymentpdf = remittancespdf($payment);
+            $paymentpdf = remittancepdf($payment);
         } catch (Exception $e) {
             $message = $e->getMessage();
             echo $message;
