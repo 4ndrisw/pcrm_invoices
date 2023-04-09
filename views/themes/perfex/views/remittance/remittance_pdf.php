@@ -21,9 +21,9 @@ pdf_multi_row($left_info, $right_info, $pdf, ($dimensions['wk'] / 2) - $dimensio
 
 $pdf->SetFontSize(15);
 
-$receit_heading = '<div style="text-align:center">' . mb_strtoupper(_l('payment_receipt'), 'UTF-8') . '</div>';
+$receipt_heading = '<div style="text-align:center">' . mb_strtoupper(_l('payment_receipt'), 'UTF-8') . '</div>';
 $pdf->Ln(20);
-$pdf->writeHTMLCell(0, '', '', '', $receit_heading, 0, 1, false, true, 'L', true);
+$pdf->writeHTMLCell(0, '', '', '', $receipt_heading, 0, 1, false, true, 'L', true);
 $pdf->SetFontSize($font_size);
 $pdf->Ln(20);
 $pdf->Cell(0, 0, _l('payment_date') . ' ' . _d($payment->date), 0, 1, 'L', 0, '', 0);
