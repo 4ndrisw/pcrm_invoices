@@ -114,6 +114,15 @@ function statements_permissions()
     ];
 
     register_staff_capabilities('statements', $capabilities, _l('statements'));
+    
+    $capabilities['capabilities'] = [
+            'view'   => _l('permission_view') . '(' . _l('permission_global') . ')',
+            'create' => _l('permission_create'),
+            'edit'   => _l('permission_edit'),
+            'delete' => _l('permission_delete'),
+    ];
+
+    register_staff_capabilities('remittances', $capabilities, _l('remittances'));
 }
 
 
@@ -167,6 +176,15 @@ function statements_module_init_menu_items()
                 'name'     => _l('statements'),
                 'icon'     => 'fa fa-calendar',
                 'href'     => admin_url('statements'),
+                'position' => 12,
+        ]);
+    }
+    if (has_permission('remittances', '', 'view')) {
+        $CI->app_menu->add_sidebar_menu_item('remittances', [
+                'slug'     => 'remittances-tracking',
+                'name'     => _l('remittances'),
+                'icon'     => 'fa fa-calendar',
+                'href'     => admin_url('remittances'),
                 'position' => 12,
         ]);
     }
