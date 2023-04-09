@@ -11,7 +11,7 @@ class Remittances extends AdminController
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('statements/Remittances_model');
+        $this->load->model('statements/remittances_model');
     }
 
     public function batch_payment_modal() {
@@ -94,14 +94,14 @@ class Remittances extends AdminController
             }
             redirect(admin_url('statements/remittances/payment/' . $id));
         }
+        log_activity(json_encode($id));
         $payment = $this->remittances_model->get($id);
-        log_activity(json_encode($payment));
 
         if (!$payment) {
             show_404();
         }
 
-        $this->load->model('statements/remittances_model');
+        //$this->load->model('statements/remittances_model');
         $payment->statement = $this->statements_model->get($payment->statementid);
         $template_name    = 'statement_payment_recorded_to_customer';
 
@@ -120,7 +120,7 @@ class Remittances extends AdminController
         }
 
         $data['title'] = _l('payment_receipt') . ' - ' . format_statement_number($data['payment']->statementid);
-        $this->load->view('admin/payments/payment', $data);
+        $this->load->view('admin/remittances/payment', $data);
     }
 
     /**
