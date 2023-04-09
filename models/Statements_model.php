@@ -898,6 +898,9 @@ class Statements_model extends App_Model
         unset($data['task_id']);
         unset($data['expense_id']);
         unset($data['taxname']);
+
+        unset($data['isedit']);
+        unset($data['task_select']);
         
 
         $this->db->where('id', $id)->update('statements', $data);
