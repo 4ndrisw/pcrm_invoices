@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-5">
                 <h4 class="tw-mt-0 tw-font-semibold tw-text-lg tw-text-neutral-700">
-                    <?php echo _l('payment_edit_for_invoice'); ?>
-                    <a href="<?php echo admin_url('invoices/list_invoices/' . $payment->invoiceid); ?>">
-                        <?php echo format_invoice_number($payment->invoice->id); ?>
+                    <?php echo _l('payment_edit_for_statement'); ?>
+                    <a href="<?php echo admin_url('statements/list_statements/' . $payment->statementid); ?>">
+                        <?php echo format_statement_number($payment->statement->id); ?>
                     </a>
                 </h4>
                 <div class="col-md-12 no-padding">
@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-sm-6 text-right">
                                 <address class="tw-text-neutral-500">
-                                    <?php echo format_customer_info($payment->invoice, 'payment', 'billing', true); ?>
+                                    <?php echo format_customer_info($payment->statement, 'payment', 'billing', true); ?>
                                 </address>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                 <div class="col-md-6">
                                     <div class="payment-preview-wrapper">
                                         <?php echo _l('payment_total_amount'); ?><br />
-                                        <?php echo app_format_money($payment->amount, $payment->invoice->currency_name); ?>
+                                        <?php echo app_format_money($payment->amount, $payment->statement->currency_name); ?>
                                     </div>
                                 </div>
                             </div>
@@ -143,29 +143,29 @@
                                 <table class="table table-bordered !tw-mt-0">
                                     <thead>
                                         <tr>
-                                            <th><?php echo _l('payment_table_invoice_number'); ?></th>
-                                            <th><?php echo _l('payment_table_invoice_date'); ?></th>
-                                            <th><?php echo _l('payment_table_invoice_amount_total'); ?></th>
+                                            <th><?php echo _l('payment_table_statement_number'); ?></th>
+                                            <th><?php echo _l('payment_table_statement_date'); ?></th>
+                                            <th><?php echo _l('payment_table_statement_amount_total'); ?></th>
                                             <th><?php echo _l('payment_table_payment_amount_total'); ?></th>
-                                            <?php if ($payment->invoice->status != Invoices_model::STATUS_PAID
-                                                    && $payment->invoice->status != Invoices_model::STATUS_CANCELLED) { ?>
-                                            <th><span class="text-danger"><?php echo _l('invoice_amount_due'); ?></span>
+                                            <?php if ($payment->statement->status != Invoices_model::STATUS_PAID
+                                                    && $payment->statement->status != Invoices_model::STATUS_CANCELLED) { ?>
+                                            <th><span class="text-danger"><?php echo _l('statement_amount_due'); ?></span>
                                             </th>
                                             <?php } ?>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><?php echo format_invoice_number($payment->invoice->id); ?></td>
-                                            <td><?php echo _d($payment->invoice->date); ?></td>
-                                            <td><?php echo app_format_money($payment->invoice->total, $payment->invoice->currency_name); ?>
+                                            <td><?php echo format_statement_number($payment->statement->id); ?></td>
+                                            <td><?php echo _d($payment->statement->date); ?></td>
+                                            <td><?php echo app_format_money($payment->statement->total, $payment->statement->currency_name); ?>
                                             </td>
-                                            <td><?php echo app_format_money($payment->amount, $payment->invoice->currency_name); ?>
+                                            <td><?php echo app_format_money($payment->amount, $payment->statement->currency_name); ?>
                                             </td>
-                                            <?php if ($payment->invoice->status != Invoices_model::STATUS_PAID
-                                                        && $payment->invoice->status != Invoices_model::STATUS_CANCELLED) { ?>
+                                            <?php if ($payment->statement->status != Invoices_model::STATUS_PAID
+                                                        && $payment->statement->status != Invoices_model::STATUS_CANCELLED) { ?>
                                             <td class="text-danger">
-                                                <?php echo app_format_money(get_invoice_total_left_to_pay($payment->invoice->id, $payment->invoice->total), $payment->invoice->currency_name); ?>
+                                                <?php echo app_format_money(get_statement_total_left_to_pay($payment->statement->id, $payment->statement->total), $payment->statement->currency_name); ?>
                                             </td>
                                             <?php } ?>
                                         </tr>
