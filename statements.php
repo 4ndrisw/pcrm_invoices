@@ -184,7 +184,7 @@ function statements_module_init_menu_items()
                 'slug'     => 'remittances-tracking',
                 'name'     => _l('remittances'),
                 'icon'     => 'fa fa-calendar',
-                'href'     => admin_url('remittances'),
+                'href'     => admin_url('statements/remittances'),
                 'position' => 12,
         ]);
     }
