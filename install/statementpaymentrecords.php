@@ -16,7 +16,7 @@ if (!$CI->db->table_exists(db_prefix() . 'statementpaymentrecords')) {
 
     $CI->db->query('ALTER TABLE `' . db_prefix() . 'statementpaymentrecords`
       ADD PRIMARY KEY (`id`),
-      ADD KEY `invoiceid` (`invoiceid`),
+      ADD KEY `statementid` (`statementid`),
       ADD KEY `paymentmethod` (`paymentmethod`);
     ');
 
