@@ -293,3 +293,7 @@ $lang['statement_project_project_name_data']                   = 'Project name';
 $lang['statement_project_timesheet_individually_data']         = 'Timesheet start time + end time + total logged time';
 $lang['statement_project_total_logged_time_data']              = 'Total logged time';
 $lang['project_activity_statementd_project']             = 'Invoiced project';
+
+
+#Remittances
+$lang['remittances']                                = 'Remittances';
